@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>أمنية ستور | خدمات سوشيال ميديا احترافية</title>
-    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -12,7 +11,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Segoe UI', 'Tajawal', system-ui, sans-serif;
             background: radial-gradient(circle at 10% 20%, #0b0822, #1a1738, #0f0c2c);
@@ -21,7 +19,6 @@
             line-height: 1.5;
             min-height: 100vh;
         }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -29,15 +26,12 @@
             backdrop-filter: blur(12px);
             border-radius: 2rem;
             padding: 1.8rem 1.5rem;
-            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
-            transition: all 0.2s;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
         }
-
         .header {
             text-align: center;
             margin-bottom: 1.8rem;
         }
-
         .store-name {
             font-size: 2.4rem;
             font-weight: 800;
@@ -50,21 +44,16 @@
             gap: 12px;
         }
         .store-name i {
-            background: none;
-            -webkit-text-fill-color: initial;
             color: #ffb347;
             font-size: 2rem;
         }
-
         .subtitle {
             color: #c0c0e0;
             font-size: 0.95rem;
             border-top: 1px dashed rgba(255, 215, 0, 0.4);
             display: inline-block;
             padding-top: 6px;
-            margin-top: 6px;
         }
-
         .status-badge {
             display: inline-flex;
             align-items: center;
@@ -76,7 +65,6 @@
             gap: 10px;
             font-weight: 600;
             font-size: 0.85rem;
-            border: 1px solid rgba(255, 255, 200, 0.2);
         }
         .status-dot {
             width: 12px;
@@ -96,21 +84,17 @@
             50% { transform: scale(1.2); opacity: 1; }
             100% { transform: scale(0.95); opacity: 0.7; }
         }
-
         .section {
             background: rgba(25, 22, 55, 0.65);
             backdrop-filter: blur(4px);
             border-radius: 1.5rem;
             padding: 1.2rem;
             margin: 1.2rem 0;
-            transition: all 0.25s ease;
             border: 1px solid rgba(255, 200, 100, 0.15);
         }
         .section:hover {
             border-color: rgba(255, 180, 70, 0.6);
-            background: rgba(30, 27, 65, 0.8);
         }
-
         .section-title {
             font-size: 1.35rem;
             font-weight: 700;
@@ -122,50 +106,37 @@
             border-bottom: 2px solid rgba(255, 200, 100, 0.5);
             color: #FFE1A0;
         }
-        .section-title i {
-            font-size: 1.4rem;
-            color: #ffb84d;
-        }
-
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
             gap: 12px;
-            margin-top: 8px;
         }
-
         .service-card {
             background: rgba(0, 0, 0, 0.35);
             border-radius: 1.2rem;
             padding: 12px 8px;
             text-align: center;
-            transition: 0.2s ease-in-out;
-            border: 1px solid rgba(255, 255, 210, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 5px;
+            transition: 0.2s;
+            border: 1px solid rgba(255,255,210,0.1);
         }
         .service-card:hover {
             transform: translateY(-3px);
-            background: rgba(0, 0, 0, 0.55);
+            background: rgba(0,0,0,0.55);
             border-color: #ffb347;
-            box-shadow: 0 12px 20px -8px black;
         }
         .service-card i {
             font-size: 1.9rem;
             color: #ffc857;
-            margin-bottom: 4px;
         }
         .service-name {
             font-weight: 700;
             font-size: 0.9rem;
+            margin: 6px 0;
         }
         .price {
             font-weight: bold;
             color: #FFE0A3;
             font-size: 0.9rem;
-            margin: 4px 0;
         }
         .buy-btn {
             background: linear-gradient(95deg, #f5a623, #ff7e05);
@@ -179,21 +150,8 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            transition: 0.2s;
-            text-decoration: none;
-            margin-top: 6px;
-            letter-spacing: 0.3px;
+            margin-top: 8px;
         }
-        .buy-btn i {
-            font-size: 0.8rem;
-            color: #1f1a2e;
-        }
-        .buy-btn:hover {
-            background: #ff9f2f;
-            transform: scale(1.02);
-            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
-        }
-
         .price-list {
             display: flex;
             flex-wrap: wrap;
@@ -208,13 +166,6 @@
             text-align: center;
             border: 1px solid #58528b;
         }
-        .price-item strong {
-            color: #FFD966;
-        }
-        .price-item .buy-sm {
-            margin-top: 8px;
-        }
-
         .crypto-box {
             display: flex;
             gap: 12px;
@@ -226,48 +177,43 @@
             background: #23204b;
             border-radius: 3rem;
             padding: 8px 18px;
-            font-weight: bold;
             display: inline-flex;
             align-items: center;
             gap: 8px;
         }
-
         .note {
             font-size: 0.7rem;
             color: #ffbb99;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0,0,0,0.3);
             border-radius: 2rem;
             padding: 4px 12px;
             display: inline-block;
             margin-top: 8px;
         }
-
         .footer-note {
             text-align: center;
             margin-top: 2rem;
             font-size: 0.8rem;
             color: #aca9dd;
-            border-top: 1px solid rgba(255, 185, 80, 0.3);
+            border-top: 1px solid rgba(255,185,80,0.3);
             padding-top: 1rem;
         }
         .designer {
             margin-top: 12px;
             font-size: 0.75rem;
-            font-weight: 500;
             background: linear-gradient(135deg, #ffd89b, #ffb347);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        /* مودال الاحترافي مع رفع الصورة */
+        /* مودال */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            background: rgba(0,0,0,0.85);
             backdrop-filter: blur(8px);
             display: flex;
             align-items: center;
@@ -275,7 +221,7 @@
             z-index: 1000;
             visibility: hidden;
             opacity: 0;
-            transition: visibility 0.2s, opacity 0.2s;
+            transition: 0.2s;
         }
         .modal-overlay.active {
             visibility: visible;
@@ -284,68 +230,71 @@
         .modal-container {
             background: linear-gradient(145deg, #1e1b3a, #151234);
             border-radius: 2rem;
-            max-width: 520px;
+            max-width: 550px;
             width: 90%;
             padding: 1.8rem;
-            border: 1px solid rgba(255, 200, 100, 0.5);
-            box-shadow: 0 30px 40px rgba(0, 0, 0, 0.6);
-            transform: scale(0.95);
-            transition: transform 0.2s;
-            text-align: center;
-        }
-        .modal-overlay.active .modal-container {
-            transform: scale(1);
+            border: 1px solid rgba(255,200,100,0.5);
+            max-height: 90vh;
+            overflow-y: auto;
         }
         .modal-container h3 {
-            font-size: 1.7rem;
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
             color: #FFD966;
+            text-align: center;
         }
         .modal-order-id {
             background: #00000055;
             padding: 8px;
             border-radius: 50px;
             font-family: monospace;
-            font-size: 1.2rem;
-            letter-spacing: 1px;
+            text-align: center;
             margin: 12px 0;
-            border: 1px dashed #ffb347;
         }
         .payment-methods {
             display: flex;
             gap: 15px;
-            justify-content: center;
-            margin: 20px 0;
-            flex-wrap: wrap;
+            margin: 15px 0;
         }
         .pay-method {
             background: #2a264f;
             border-radius: 1rem;
             padding: 12px;
             flex: 1;
+            text-align: center;
             cursor: pointer;
-            transition: 0.2s;
-            border: 1px solid transparent;
         }
         .pay-method:hover {
             background: #3f3a6e;
-            border-color: #ffb347;
-        }
-        .pay-method i {
-            font-size: 2rem;
-            display: block;
-            margin-bottom: 8px;
         }
         .method-detail {
-            margin-top: 20px;
             background: #0f0d26;
             border-radius: 1rem;
-            padding: 14px;
+            padding: 12px;
             font-size: 0.85rem;
-            text-align: right;
+            margin: 12px 0;
+        }
+        .service-input {
+            margin: 15px 0;
+            background: #1a173a;
+            border-radius: 1rem;
+            padding: 12px;
+        }
+        .service-input label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .service-input input, .service-input textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 1rem;
+            border: none;
+            background: #2d2a55;
+            color: white;
+            font-size: 0.9rem;
         }
         .file-upload-area {
-            margin: 15px 0;
+            margin: 12px 0;
             background: #1a173a;
             border-radius: 1rem;
             padding: 10px;
@@ -360,23 +309,14 @@
             background: #2d2a55;
             padding: 8px;
             border-radius: 2rem;
-            transition: 0.2s;
-        }
-        .file-upload-area label:hover {
-            background: #48438b;
         }
         #receiptImage {
             display: none;
         }
-        .file-name {
-            font-size: 0.7rem;
-            color: #ccc;
-            margin-top: 6px;
-        }
         .send-order-btn {
             background: #27ae60;
             border: none;
-            padding: 10px 20px;
+            padding: 12px;
             border-radius: 40px;
             color: white;
             font-weight: bold;
@@ -386,12 +326,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            transition: 0.2s;
-        }
-        .send-order-btn:hover {
-            background: #2ecc71;
-            transform: scale(1.02);
+            gap: 8px;
         }
         .close-modal {
             background: #ff5e6e;
@@ -399,88 +334,75 @@
             padding: 8px 20px;
             border-radius: 40px;
             color: white;
-            font-weight: bold;
-            margin-top: 5px;
+            width: 100%;
             cursor: pointer;
         }
         hr {
             border-color: #ffffff30;
-            margin: 10px 0;
-        }
-
-        @media (max-width: 640px) {
-            .container {
-                padding: 1rem;
-            }
-            .services-grid {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            }
+            margin: 8px 0;
         }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="header">
-        <div class="store-name">
-            <i class="fas fa-store"></i>
-            <span>أمنية ستور</span>
-            <i class="fas fa-cart-shopping"></i>
-        </div>
+        <div class="store-name"><i class="fas fa-store"></i><span>أمنية ستور</span><i class="fas fa-cart-shopping"></i></div>
         <div class="subtitle"><i class="fas fa-hashtag"></i> خدمات سوشيال ميديا ودفع رقمي <i class="fas fa-bolt"></i></div>
-        <div class="status-badge" id="statusBadge">
-            <span class="status-dot" id="statusDot"></span>
-            <span id="statusText">جار التحميل...</span>
-        </div>
+        <div class="status-badge" id="statusBadge"><span class="status-dot" id="statusDot"></span><span id="statusText">جار التحميل...</span></div>
     </div>
 
-    <!-- جميع الأقسام (مثل السابق مع أيقونات) -->
+    <!-- قسم تيليجرام بريميوم -->
     <div class="section">
         <div class="section-title"><i class="fab fa-telegram-plane"></i> تفعيل تيليجرام بريميوم</div>
         <div class="services-grid">
-            <div class="service-card"><i class="fas fa-calendar-alt"></i><div class="service-name">بريميوم 3 أشهر</div><div class="price">13$</div><button class="buy-btn" data-name="بريميوم 3 أشهر" data-price="13$"><i class="fas fa-shopping-cart"></i> شراء</button></div>
-            <div class="service-card"><i class="fas fa-calendar-week"></i><div class="service-name">بريميوم 6 أشهر</div><div class="price">18$</div><button class="buy-btn" data-name="بريميوم 6 أشهر" data-price="18$"><i class="fas fa-shopping-cart"></i> شراء</button></div>
-            <div class="service-card"><i class="fas fa-calendar-check"></i><div class="service-name">بريميوم 12 شهر</div><div class="price">31$</div><button class="buy-btn" data-name="بريميوم 12 شهر" data-price="31$"><i class="fas fa-shopping-cart"></i> شراء</button></div>
+            <div class="service-card"><i class="fas fa-calendar-alt"></i><div class="service-name">بريميوم 3 أشهر</div><div class="price">13$</div><button class="buy-btn" data-name="بريميوم 3 أشهر" data-price="13$" data-type="telegram_premium"><i class="fas fa-shopping-cart"></i> شراء</button></div>
+            <div class="service-card"><i class="fas fa-calendar-week"></i><div class="service-name">بريميوم 6 أشهر</div><div class="price">18$</div><button class="buy-btn" data-name="بريميوم 6 أشهر" data-price="18$" data-type="telegram_premium"><i class="fas fa-shopping-cart"></i> شراء</button></div>
+            <div class="service-card"><i class="fas fa-calendar-check"></i><div class="service-name">بريميوم 12 شهر</div><div class="price">31$</div><button class="buy-btn" data-name="بريميوم 12 شهر" data-price="31$" data-type="telegram_premium"><i class="fas fa-shopping-cart"></i> شراء</button></div>
         </div>
-        <div class="note"><i class="fas fa-money-bill-wave"></i> الدفع كاش حسب سعر الدولار لحظياً</div>
+        <div class="note"><i class="fas fa-money-bill-wave"></i> الدفع كاش حسب سعر الدولار</div>
     </div>
 
+    <!-- نجوم تيليجرام -->
     <div class="section">
         <div class="section-title"><i class="fas fa-star-of-life"></i> شحن نجوم تيليجرام</div>
         <div class="price-list">
-            <div class="price-item">50 نجمة <strong>1.1$</strong><br><button class="buy-btn buy-sm" data-name="50 نجمة تيليجرام" data-price="1.1$"><i class="fas fa-cart-plus"></i> شراء</button></div>
-            <div class="price-item">100 نجمة <strong>2$</strong><br><button class="buy-btn buy-sm" data-name="100 نجمة تيليجرام" data-price="2$"><i class="fas fa-cart-plus"></i> شراء</button></div>
-            <div class="price-item">200 نجمة <strong>3.9$</strong><br><button class="buy-btn buy-sm" data-name="200 نجمة تيليجرام" data-price="3.9$"><i class="fas fa-cart-plus"></i> شراء</button></div>
-            <div class="price-item">300 نجمة <strong>5.5$</strong><br><button class="buy-btn buy-sm" data-name="300 نجمة تيليجرام" data-price="5.5$"><i class="fas fa-cart-plus"></i> شراء</button></div>
-            <div class="price-item">500 نجمة <strong>9$</strong><br><button class="buy-btn buy-sm" data-name="500 نجمة تيليجرام" data-price="9$"><i class="fas fa-cart-plus"></i> شراء</button></div>
-            <div class="price-item">750 نجمة <strong>13.5$</strong><br><button class="buy-btn buy-sm" data-name="750 نجمة تيليجرام" data-price="13.5$"><i class="fas fa-cart-plus"></i> شراء</button></div>
-            <div class="price-item">1000 نجمة <strong>17$</strong><br><button class="buy-btn buy-sm" data-name="1000 نجمة تيليجرام" data-price="17$"><i class="fas fa-cart-plus"></i> شراء</button></div>
+            <div class="price-item">50 نجمة <strong>1.1$</strong><br><button class="buy-btn" data-name="50 نجمة تيليجرام" data-price="1.1$" data-type="telegram_stars"><i class="fas fa-cart-plus"></i> شراء</button></div>
+            <div class="price-item">100 نجمة <strong>2$</strong><br><button class="buy-btn" data-name="100 نجمة تيليجرام" data-price="2$" data-type="telegram_stars"><i class="fas fa-cart-plus"></i> شراء</button></div>
+            <div class="price-item">200 نجمة <strong>3.9$</strong><br><button class="buy-btn" data-name="200 نجمة تيليجرام" data-price="3.9$" data-type="telegram_stars"><i class="fas fa-cart-plus"></i> شراء</button></div>
+            <div class="price-item">300 نجمة <strong>5.5$</strong><br><button class="buy-btn" data-name="300 نجمة تيليجرام" data-price="5.5$" data-type="telegram_stars"><i class="fas fa-cart-plus"></i> شراء</button></div>
+            <div class="price-item">500 نجمة <strong>9$</strong><br><button class="buy-btn" data-name="500 نجمة تيليجرام" data-price="9$" data-type="telegram_stars"><i class="fas fa-cart-plus"></i> شراء</button></div>
+            <div class="price-item">750 نجمة <strong>13.5$</strong><br><button class="buy-btn" data-name="750 نجمة تيليجرام" data-price="13.5$" data-type="telegram_stars"><i class="fas fa-cart-plus"></i> شراء</button></div>
+            <div class="price-item">1000 نجمة <strong>17$</strong><br><button class="buy-btn" data-name="1000 نجمة تيليجرام" data-price="17$" data-type="telegram_stars"><i class="fas fa-cart-plus"></i> شراء</button></div>
         </div>
     </div>
 
+    <!-- متصلين جروبات -->
     <div class="section">
         <div class="section-title"><i class="fas fa-users"></i> تزويد أعضاء متصلين للجروبات</div>
         <div class="services-grid">
-            <div class="service-card"><i class="fas fa-user-friends"></i><div class="service-name">250 متصل</div><div class="price">3$</div><button class="buy-btn" data-name="250 متصل للجروب" data-price="3$"><i class="fas fa-shopping-cart"></i> شراء</button></div>
-            <div class="service-card"><i class="fas fa-users"></i><div class="service-name">500 متصل</div><div class="price">5.5$</div><button class="buy-btn" data-name="500 متصل للجروب" data-price="5.5$"><i class="fas fa-shopping-cart"></i> شراء</button></div>
-            <div class="service-card"><i class="fas fa-user-plus"></i><div class="service-name">1000 متصل</div><div class="price">9.5$</div><button class="buy-btn" data-name="1000 متصل للجروب" data-price="9.5$"><i class="fas fa-shopping-cart"></i> شراء</button></div>
+            <div class="service-card"><i class="fas fa-user-friends"></i><div class="service-name">250 متصل</div><div class="price">3$</div><button class="buy-btn" data-name="250 متصل للجروب" data-price="3$" data-type="group_members"><i class="fas fa-shopping-cart"></i> شراء</button></div>
+            <div class="service-card"><i class="fas fa-users"></i><div class="service-name">500 متصل</div><div class="price">5.5$</div><button class="buy-btn" data-name="500 متصل للجروب" data-price="5.5$" data-type="group_members"><i class="fas fa-shopping-cart"></i> شراء</button></div>
+            <div class="service-card"><i class="fas fa-user-plus"></i><div class="service-name">1000 متصل</div><div class="price">9.5$</div><button class="buy-btn" data-name="1000 متصل للجروب" data-price="9.5$" data-type="group_members"><i class="fas fa-shopping-cart"></i> شراء</button></div>
         </div>
         <div class="note"><i class="fas fa-hourglass-half"></i> المتصلين لمدة شهر فقط</div>
     </div>
 
+    <!-- خدمات متنوعة -->
     <div class="section">
         <div class="section-title"><i class="fas fa-globe"></i> خدمات متنوعة</div>
         <div class="services-grid">
-            <div class="service-card"><i class="fas fa-chart-line"></i><div class="service-name">تعزيز قنوات</div><button class="buy-btn" data-name="تعزيز قنوات/جروبات" data-price="سعر حسب الطلب"><i class="fas fa-tag"></i> شراء</button></div>
-            <div class="service-card"><i class="fab fa-telegram"></i><div class="service-name">متابعين تيليجرام</div><button class="buy-btn" data-name="متابعين تيليجرام" data-price="حسب العدد"><i class="fas fa-tag"></i> شراء</button></div>
-            <div class="service-card"><i class="fas fa-eye"></i><div class="service-name">تفاعلات ومشاهدات</div><button class="buy-btn" data-name="تفاعلات ومشاهدات" data-price="حسب الكمية"><i class="fas fa-tag"></i> شراء</button></div>
-            <div class="service-card"><i class="fab fa-tiktok"></i><div class="service-name">شحن عملات TikTok</div><button class="buy-btn" data-name="شحن تيك توك" data-price="سعر تنافسي"><i class="fas fa-tag"></i> شراء</button></div>
-            <div class="service-card"><i class="fas fa-mobile-alt"></i><div class="service-name">أرقام وهمية</div><button class="buy-btn" data-name="أرقام واتساب/تيليجرام" data-price="يُحدد"><i class="fas fa-tag"></i> شراء</button></div>
-            <div class="service-card"><i class="fas fa-tv"></i><div class="service-name">اشتراكات Netflix</div><button class="buy-btn" data-name="اشتراك Netflix/Spotify" data-price="حسب الباقة"><i class="fas fa-tag"></i> شراء</button></div>
-            <div class="service-card"><i class="fas fa-gamepad"></i><div class="service-name">شحن ألعاب</div><button class="buy-btn" data-name="شحن ألعاب ورصيد دولار" data-price="حسب الطلب"><i class="fas fa-tag"></i> شراء</button></div>
-            <div class="service-card"><i class="fas fa-robot"></i><div class="service-name">ChatGPT Plus</div><button class="buy-btn" data-name="ChatGPT Plus" data-price="22$ شهريا"><i class="fas fa-tag"></i> شراء</button></div>
+            <div class="service-card"><i class="fas fa-chart-line"></i><div class="service-name">تعزيز قنوات/جروبات</div><button class="buy-btn" data-name="تعزيز قنوات/جروبات" data-price="حسب الطلب" data-type="promotion"><i class="fas fa-tag"></i> شراء</button></div>
+            <div class="service-card"><i class="fab fa-telegram"></i><div class="service-name">متابعين تيليجرام</div><button class="buy-btn" data-name="متابعين تيليجرام" data-price="حسب العدد" data-type="followers"><i class="fas fa-tag"></i> شراء</button></div>
+            <div class="service-card"><i class="fas fa-eye"></i><div class="service-name">تفاعلات ومشاهدات</div><button class="buy-btn" data-name="تفاعلات ومشاهدات" data-price="حسب الكمية" data-type="views"><i class="fas fa-tag"></i> شراء</button></div>
+            <div class="service-card"><i class="fab fa-tiktok"></i><div class="service-name">شحن عملات TikTok</div><button class="buy-btn" data-name="شحن تيك توك" data-price="سعر تنافسي" data-type="tiktok_coins"><i class="fas fa-tag"></i> شراء</button></div>
+            <div class="service-card"><i class="fas fa-mobile-alt"></i><div class="service-name">أرقام وهمية</div><button class="buy-btn" data-name="أرقام واتساب/تيليجرام" data-price="يُحدد" data-type="virtual_numbers"><i class="fas fa-tag"></i> شراء</button></div>
+            <div class="service-card"><i class="fas fa-tv"></i><div class="service-name">اشتراكات Netflix</div><button class="buy-btn" data-name="اشتراك Netflix/Spotify" data-price="حسب الباقة" data-type="subscriptions"><i class="fas fa-tag"></i> شراء</button></div>
+            <div class="service-card"><i class="fas fa-gamepad"></i><div class="service-name">شحن ألعاب</div><button class="buy-btn" data-name="شحن ألعاب ورصيد دولار" data-price="حسب الطلب" data-type="games"><i class="fas fa-tag"></i> شراء</button></div>
+            <div class="service-card"><i class="fas fa-robot"></i><div class="service-name">ChatGPT Plus</div><button class="buy-btn" data-name="ChatGPT Plus" data-price="22$ شهريا" data-type="chatgpt"><i class="fas fa-tag"></i> شراء</button></div>
         </div>
     </div>
 
+    <!-- عملات رقمية -->
     <div class="section">
         <div class="section-title"><i class="fas fa-coins"></i> بيع وشراء عملات رقمية</div>
         <div class="crypto-box">
@@ -488,206 +410,190 @@
             <div class="crypto-item"><i class="fas fa-gem"></i> TON</div>
             <div class="crypto-item"><i class="fas fa-charging-station"></i> TRX</div>
         </div>
-        <div style="text-align: center;"><button class="buy-btn" data-name="عملات رقمية (شراء/بيع)" data-price="سعر الصرف لحظي" style="padding:10px 28px;"><i class="fas fa-exchange-alt"></i> تواصل للبيع أو الشراء</button></div>
+        <div style="text-align:center;"><button class="buy-btn" data-name="عملات رقمية (شراء/بيع)" data-price="سعر الصرف لحظي" data-type="crypto"><i class="fas fa-exchange-alt"></i> تواصل للبيع أو الشراء</button></div>
     </div>
 
+    <!-- جروبات وقنوات للبيع -->
     <div class="section">
         <div class="section-title"><i class="fas fa-paper-plane"></i> جروبات وقنوات للبيع</div>
-        <div style="text-align:center;"><p><i class="fas fa-box-open"></i> متاح جروبات وقنوات جاهزة</p><button class="buy-btn" data-name="شراء قناة أو جروب تيليجرام" data-price="حسب القناة"><i class="fas fa-store"></i> استفسر الآن</button></div>
+        <div style="text-align:center;"><p><i class="fas fa-box-open"></i> متاح جروبات وقنوات جاهزة</p><button class="buy-btn" data-name="شراء قناة أو جروب تيليجرام" data-price="حسب القناة" data-type="buy_channel"><i class="fas fa-store"></i> استفسر الآن</button></div>
     </div>
 
     <div class="footer-note">
         <i class="fas fa-shield-alt"></i> أمنية ستور - جميع الخدمات<br>
-        <div class="designer"><i class="fas fa-code"></i> تم التصميم بفخر بواسطة بيبو <i class="fas fa-heart" style="color:#ff7b89;"></i></div>
+        <div class="designer"><i class="fas fa-code"></i> تم التصميم بفخر بواسطة بيبو <i class="fas fa-heart"></i></div>
     </div>
 </div>
 
-<!-- المودال مع رفع الصورة وإرسال الطلب -->
+<!-- المودال -->
 <div id="paymentModal" class="modal-overlay">
     <div class="modal-container">
         <h3><i class="fas fa-file-invoice"></i> طلب شراء</h3>
-        <div id="modalServiceName" style="font-weight: bold; font-size:1.2rem;">الخدمة</div>
-        <div id="modalPrice" style="color:#ffcc88;">السعر: </div>
+        <div id="modalServiceName" style="font-weight:bold; text-align:center;"></div>
+        <div id="modalPrice" style="text-align:center; color:#ffcc88;"></div>
         <div class="modal-order-id"><i class="fas fa-ticket-alt"></i> رقم الطلب: <span id="orderNumber">ORD-0000</span></div>
-        <div class="payment-methods">
-            <div class="pay-method" data-method="vodafone">
-                <i class="fas fa-mobile-alt"></i>
-                <span><i class="fas fa-flag"></i> فودافون كاش</span>
-            </div>
-            <div class="pay-method" data-method="usdt">
-                <i class="fas fa-gem"></i>
-                <span>USDT (TRC20)</span>
-            </div>
-        </div>
-        <div id="methodDetail" class="method-detail">
-            <i class="fas fa-info-circle"></i> اختر وسيلة دفع لعرض التفاصيل
-        </div>
         
-        <!-- إضافة رفع الصورة وإرسال الطلب -->
+        <!-- حقل إدخال ديناميكي حسب الخدمة -->
+        <div id="dynamicInputContainer" class="service-input" style="display:none;">
+            <label id="dynamicLabel"><i class="fas fa-info-circle"></i> البيانات المطلوبة</label>
+            <input type="text" id="serviceDataInput" placeholder="أدخل البيانات هنا">
+        </div>
+
+        <div class="payment-methods">
+            <div class="pay-method" data-method="vodafone"><i class="fas fa-mobile-alt"></i> فودافون كاش</div>
+            <div class="pay-method" data-method="usdt"><i class="fas fa-gem"></i> USDT (TRC20)</div>
+        </div>
+        <div id="methodDetail" class="method-detail"><i class="fas fa-hand-peace"></i> اختر وسيلة دفع</div>
+        
         <div class="file-upload-area">
-            <label for="receiptImage">
-                <i class="fas fa-cloud-upload-alt"></i> رفع صورة الإيصال / إثبات الدفع
-            </label>
-            <input type="file" id="receiptImage" accept="image/jpeg, image/png, image/jpg">
+            <label for="receiptImage"><i class="fas fa-cloud-upload-alt"></i> رفع صورة الإيصال</label>
+            <input type="file" id="receiptImage" accept="image/*">
             <div class="file-name" id="fileNameDisplay">لم يتم اختيار ملف</div>
         </div>
         
-        <button class="send-order-btn" id="sendOrderBtn">
-            <i class="fas fa-paper-plane"></i> إرسال الطلب واستكمال الخدمة
-        </button>
+        <button class="send-order-btn" id="sendOrderBtn"><i class="fas fa-paper-plane"></i> إرسال الطلب</button>
         <button class="close-modal" id="closeModalBtn"><i class="fas fa-times"></i> إغلاق</button>
     </div>
 </div>
 
 <script>
-    // بيانات الدفع بدون إيموجيز (أيقونات)
-    const paymentDetails = {
-        vodafone: {
-            title: "فودافون كاش",
-            text: '<i class="fas fa-phone-alt"></i> رقم فودافون كاش: <b>01000000000</b> <br> <i class="fas fa-exchange-alt"></i> المبلغ: <span id="modalPriceValue"></span><br> <i class="fas fa-exclamation-triangle"></i> بعد الدفع سيتم التفعيل خلال دقائق.'
-        },
-        usdt: {
-            title: "USDT (TRC20)",
-            text: '<i class="fas fa-credit-card"></i> عنوان محفظة USDT (TRC20): <b>TXk7hLq3vR9p2mN4wX6yZ8aB1cD3eF5gH7jK</b><br> <i class="fas fa-link"></i> الشبكة: TRC20<br> <i class="fas fa-dollar-sign"></i> المبلغ المطلوب: <span id="modalPriceValue"></span><br> <i class="fas fa-paper-plane"></i> يرجى إرسال التجزئة (TxID) بعد التحويل.'
-        }
+    // متطلبات الخدمات
+    const serviceRequirements = {
+        telegram_premium: { label: "معرف تيليجرام (User ID أو @username)", placeholder: "مثال: @username أو 123456789" },
+        telegram_stars: { label: "معرف تيليجرام", placeholder: "@username أو ID" },
+        group_members: { label: "رابط الجروب", placeholder: "https://t.me/..." },
+        promotion: { label: "رابط القناة أو الجروب", placeholder: "أدخل الرابط" },
+        followers: { label: "رابط القناة", placeholder: "https://t.me/..." },
+        views: { label: "رابط المنشور", placeholder: "https://t.me/..." },
+        tiktok_coins: { label: "معرف TikTok", placeholder: "@username" },
+        virtual_numbers: { label: "نوع الخدمة المطلوب", placeholder: "واتساب أو تيليجرام" },
+        subscriptions: { label: "البريد الإلكتروني", placeholder: "example@email.com" },
+        games: { label: "معرف اللاعب", placeholder: "ID أو اسم المستخدم" },
+        chatgpt: { label: "البريد الإلكتروني", placeholder: "البريد الخاص بحساب chatGPT" },
+        crypto: { label: "المبلغ ونوع العملة", placeholder: "مثال: 100 USDT" },
+        buy_channel: { label: "نوع القناة/الجروب", placeholder: "عدد الأعضاء والموضوع" }
     };
 
     let currentOrderId = "";
-    let currentService = "";
+    let currentServiceName = "";
     let currentPrice = "";
-    let currentMethod = ""; // لتخزين طريقة الدفع المختارة
+    let currentServiceType = "";
+    let currentMethod = "";
+    let selectedFile = null;
 
     function generateOrderId() {
         const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ0123456789';
         let id = 'ORN-';
-        for(let i = 0; i < 6; i++) {
-            id += chars[Math.floor(Math.random() * chars.length)];
-        }
+        for(let i=0;i<6;i++) id += chars[Math.floor(Math.random() * chars.length)];
         return id;
     }
 
-    function openModal(serviceName, price) {
-        currentService = serviceName;
+    function openModal(serviceName, price, serviceType) {
+        currentServiceName = serviceName;
         currentPrice = price;
+        currentServiceType = serviceType;
         currentOrderId = generateOrderId();
-        document.getElementById("modalServiceName").innerText = serviceName;
+        document.getElementById("modalServiceName").innerHTML = `<i class="fas fa-cube"></i> ${serviceName}`;
         document.getElementById("modalPrice").innerHTML = `<i class="fas fa-coins"></i> السعر: ${price}`;
         document.getElementById("orderNumber").innerText = currentOrderId;
-        const modal = document.getElementById("paymentModal");
-        modal.classList.add("active");
-        document.getElementById("methodDetail").innerHTML = `<i class="fas fa-hand-peace"></i> اختر وسيلة دفع لإتمام الطلب رقم ${currentOrderId}`;
-        // إعادة تعيين حالة رفع الملف
+        
+        // إظهار الحقل المطلوب
+        const req = serviceRequirements[serviceType];
+        const container = document.getElementById("dynamicInputContainer");
+        if(req) {
+            document.getElementById("dynamicLabel").innerHTML = `<i class="fas fa-pen-alt"></i> ${req.label}`;
+            document.getElementById("serviceDataInput").placeholder = req.placeholder;
+            container.style.display = "block";
+        } else {
+            container.style.display = "none";
+        }
+        // إعادة تعيين
         document.getElementById("receiptImage").value = "";
         document.getElementById("fileNameDisplay").innerHTML = "لم يتم اختيار ملف";
+        document.getElementById("methodDetail").innerHTML = `<i class="fas fa-hand-peace"></i> اختر وسيلة دفع`;
         currentMethod = "";
+        document.getElementById("serviceDataInput").value = "";
+        
+        document.getElementById("paymentModal").classList.add("active");
     }
 
     function closeModal() {
         document.getElementById("paymentModal").classList.remove("active");
     }
 
+    const paymentDetails = {
+        vodafone: { title: "فودافون كاش", text: '<i class="fas fa-phone-alt"></i> رقم فودافون كاش: <b>01000000000</b><br><i class="fas fa-exchange-alt"></i> المبلغ: <span id="modalPriceValue"></span><br><i class="fas fa-exclamation-triangle"></i> بعد الدفع سيتم التفعيل خلال دقائق.' },
+        usdt: { title: "USDT (TRC20)", text: '<i class="fas fa-credit-card"></i> عنوان USDT: <b>TXk7hLq3vR9p2mN4wX6yZ8aB1cD3eF5gH7jK</b><br><i class="fas fa-link"></i> الشبكة: TRC20<br><i class="fas fa-dollar-sign"></i> المبلغ: <span id="modalPriceValue"></span>' }
+    };
+
     function showMethodDetail(method) {
         currentMethod = method;
-        const detailDiv = document.getElementById("methodDetail");
         const data = paymentDetails[method];
         if(data) {
             let txt = `<i class="fas fa-credit-card"></i> <strong>${data.title}</strong><br>${data.text}`;
             txt = txt.replace(/<span id="modalPriceValue"><\/span>/, currentPrice);
-            txt += `<hr><i class="fas fa-check-circle" style="color:#4caf50;"></i> تم فتح الطلب برقم <strong>${currentOrderId}</strong>، يرجى إتمام الدفع عبر ${data.title} ثم رفع الإيصال وإرسال الطلب.`;
-            detailDiv.innerHTML = txt;
-        } else {
-            detailDiv.innerHTML = `<i class="fas fa-exclamation-triangle"></i> يرجى اختيار طريقة صحيحة.`;
+            txt += `<hr><i class="fas fa-check-circle"></i> الطلب مفتوح برقم ${currentOrderId}`;
+            document.getElementById("methodDetail").innerHTML = txt;
         }
     }
 
-    // إرسال الطلب مع الصورة
     function submitOrder() {
-        if (!currentMethod) {
-            alert("الرجاء اختيار طريقة الدفع أولاً");
-            return;
-        }
+        if(!currentMethod) { alert("اختر طريقة الدفع أولاً"); return; }
         const fileInput = document.getElementById("receiptImage");
         const file = fileInput.files[0];
-        if (!file) {
-            alert("الرجاء رفع صورة الإيصال / إثبات الدفع");
-            return;
+        if(!file) { alert("ارفع صورة الإيصال"); return; }
+        
+        const req = serviceRequirements[currentServiceType];
+        let userData = "";
+        if(req) {
+            userData = document.getElementById("serviceDataInput").value.trim();
+            if(!userData) { alert(`الرجاء إدخال ${req.label}`); return; }
         }
-        // محاكاة إرسال البيانات (في الحقيقة يمكن استخدام FormData مع API)
+        
         const reader = new FileReader();
         reader.onload = function(e) {
-            const imageData = e.target.result; // base64 للعرض
-            const orderData = {
+            const orderInfo = {
                 orderId: currentOrderId,
-                service: currentService,
+                service: currentServiceName,
                 price: currentPrice,
                 method: currentMethod,
-                imageBase64: imageData.substring(0, 100) + "..." // اختصار للعرض
+                requiredData: userData,
+                imagePreview: e.target.result.substring(0,50)
             };
-            console.log("تم إرسال الطلب:", orderData);
-            // عرض رسالة نجاح للمستخدم
-            alert(`✅ تم إرسال طلبك بنجاح برقم ${currentOrderId}\nسيتم مراجعة الإيصال والتواصل معك قريباً.`);
+            console.log("تم إرسال الطلب:", orderInfo);
+            alert(`✅ تم إرسال طلبك برقم ${currentOrderId}\nالبيانات: ${userData || "لا توجد بيانات إضافية"}\nسيتم مراجعة الإيصال والتواصل معك.`);
             closeModal();
         };
         reader.readAsDataURL(file);
     }
 
-    // ربط الأزرار
     document.querySelectorAll('.buy-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const name = btn.getAttribute('data-name') || btn.closest('.service-card')?.querySelector('.service-name')?.innerText || "خدمة";
-            let price = btn.getAttribute('data-price');
-            if(!price) {
-                const priceDiv = btn.closest('.service-card')?.querySelector('.price');
-                if(priceDiv) price = priceDiv.innerText;
-                else price = "يتم تحديده";
-            }
-            openModal(name, price);
+        btn.addEventListener('click', () => {
+            const name = btn.getAttribute('data-name');
+            const price = btn.getAttribute('data-price');
+            const type = btn.getAttribute('data-type');
+            openModal(name, price, type);
         });
     });
-
-    // طرق الدفع
-    document.querySelectorAll('.pay-method').forEach(methodDiv => {
-        methodDiv.addEventListener('click', (e) => {
-            const method = methodDiv.getAttribute('data-method');
-            if(method) showMethodDetail(method);
-            else showMethodDetail('vodafone');
-        });
+    document.querySelectorAll('.pay-method').forEach(m => {
+        m.addEventListener('click', () => showMethodDetail(m.getAttribute('data-method')));
     });
-
-    // إرسال الطلب
     document.getElementById("sendOrderBtn").addEventListener("click", submitOrder);
     document.getElementById("closeModalBtn").addEventListener("click", closeModal);
-    
-    // عرض اسم الملف عند اختيار صورة
     document.getElementById("receiptImage").addEventListener("change", function(e) {
-        const file = e.target.files[0];
-        if (file) {
-            document.getElementById("fileNameDisplay").innerHTML = `<i class="fas fa-file-image"></i> ${file.name}`;
-        } else {
-            document.getElementById("fileNameDisplay").innerHTML = "لم يتم اختيار ملف";
-        }
+        if(e.target.files[0]) document.getElementById("fileNameDisplay").innerHTML = `<i class="fas fa-file-image"></i> ${e.target.files[0].name}`;
+        else document.getElementById("fileNameDisplay").innerHTML = "لم يتم اختيار ملف";
     });
-    
-    window.addEventListener("click", (e) => {
-        const modal = document.getElementById("paymentModal");
-        if(e.target === modal) closeModal();
-    });
+    window.addEventListener("click", (e) => { if(e.target === document.getElementById("paymentModal")) closeModal(); });
 
     // حالة التاجر
     function updateStatus() {
-        const now = new Date();
-        const hour = now.getHours();
-        const isOnline = (hour >= 9 && hour < 23);
+        const hour = new Date().getHours();
+        const online = hour >= 9 && hour < 23;
         const dot = document.getElementById('statusDot');
         const text = document.getElementById('statusText');
-        if (isOnline) {
-            dot.className = 'status-dot';
-            text.innerHTML = '<i class="fas fa-circle" style="font-size:0.7rem; margin-left:4px;"></i> التاجر متصل الآن';
-        } else {
-            dot.className = 'status-dot offline';
-            text.innerHTML = '<i class="fas fa-circle" style="font-size:0.7rem; color:#f44336;"></i> التاجر غير متصل حالياً';
-        }
+        if(online) { dot.className = 'status-dot'; text.innerHTML = '<i class="fas fa-circle"></i> التاجر متصل الآن'; }
+        else { dot.className = 'status-dot offline'; text.innerHTML = '<i class="fas fa-circle"></i> التاجر غير متصل'; }
     }
     updateStatus();
     setInterval(updateStatus, 60000);
