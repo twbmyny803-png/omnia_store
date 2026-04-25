@@ -341,6 +341,23 @@
             border-color: #ffffff30;
             margin: 8px 0;
         }
+        /* رسالة النجاح المؤقتة */
+        .temp-success {
+            background: #27ae60ee;
+            color: white;
+            padding: 12px;
+            border-radius: 2rem;
+            margin: 12px auto;
+            text-align: center;
+            font-weight: bold;
+            backdrop-filter: blur(4px);
+            animation: fadeOut 2s ease-in-out forwards;
+        }
+        @keyframes fadeOut {
+            0% { opacity: 1; transform: scale(1); }
+            80% { opacity: 1; }
+            100% { opacity: 0; transform: scale(0.9); display: none; visibility: hidden; }
+        }
     </style>
 </head>
 <body>
@@ -451,6 +468,8 @@
             <div class="file-name" id="fileNameDisplay">لم يتم اختيار ملف</div>
         </div>
         
+        <div id="modalMessageArea" style="min-height: 50px;"></div>
+        
         <button class="send-order-btn" id="sendOrderBtn"><i class="fas fa-paper-plane"></i> إرسال الطلب</button>
         <button class="close-modal" id="closeModalBtn"><i class="fas fa-times"></i> إغلاق</button>
     </div>
@@ -511,6 +530,7 @@
         document.getElementById("receiptImage").value = "";
         document.getElementById("fileNameDisplay").innerHTML = "لم يتم اختيار ملف";
         document.getElementById("methodDetail").innerHTML = `<i class="fas fa-hand-peace"></i> اختر وسيلة دفع`;
+        document.getElementById("modalMessageArea").innerHTML = "";
         currentMethod = "";
         document.getElementById("serviceDataInput").value = "";
         
@@ -537,17 +557,39 @@
         }
     }
 
+    function showSuccessMessage() {
+        const msgDiv = document.createElement("div");
+        msgDiv.className = "temp-success";
+        msgDiv.innerHTML = `<i class="fas fa-check-circle" style="margin-left: 6px;"></i> تم إرسال الطلب بنجاح`;
+        const area = document.getElementById("modalMessageArea");
+        area.innerHTML = "";
+        area.appendChild(msgDiv);
+        // بعد 2 ثانية أغلق المودال
+        setTimeout(() => {
+            closeModal();
+        }, 2000);
+    }
+
     function submitOrder() {
-        if(!currentMethod) { alert("اختر طريقة الدفع أولاً"); return; }
+        if(!currentMethod) { 
+            showTemporaryError("اختر طريقة الدفع أولاً");
+            return; 
+        }
         const fileInput = document.getElementById("receiptImage");
         const file = fileInput.files[0];
-        if(!file) { alert("ارفع صورة الإيصال"); return; }
+        if(!file) { 
+            showTemporaryError("ارفع صورة الإيصال");
+            return; 
+        }
         
         const req = serviceRequirements[currentServiceType];
         let userData = "";
         if(req) {
             userData = document.getElementById("serviceDataInput").value.trim();
-            if(!userData) { alert(`الرجاء إدخال ${req.label}`); return; }
+            if(!userData) { 
+                showTemporaryError(`الرجاء إدخال ${req.label}`);
+                return; 
+            }
         }
         
         const reader = new FileReader();
@@ -561,10 +603,25 @@
                 imagePreview: e.target.result.substring(0,50)
             };
             console.log("تم إرسال الطلب:", orderInfo);
-            alert(`✅ تم إرسال طلبك برقم ${currentOrderId}\nالبيانات: ${userData || "لا توجد بيانات إضافية"}\nسيتم مراجعة الإيصال والتواصل معك.`);
-            closeModal();
+            // عرض رسالة النجاح في الشاشة (بدون alert)
+            showSuccessMessage();
         };
         reader.readAsDataURL(file);
+    }
+
+    function showTemporaryError(msg) {
+        const area = document.getElementById("modalMessageArea");
+        const errDiv = document.createElement("div");
+        errDiv.style.background = "#e74c3cee";
+        errDiv.style.color = "white";
+        errDiv.style.padding = "10px";
+        errDiv.style.borderRadius = "2rem";
+        errDiv.style.margin = "10px 0";
+        errDiv.style.textAlign = "center";
+        errDiv.innerHTML = `<i class="fas fa-exclamation-triangle"></i> ${msg}`;
+        area.innerHTML = "";
+        area.appendChild(errDiv);
+        setTimeout(() => { if(errDiv.parentNode) errDiv.remove(); }, 2500);
     }
 
     document.querySelectorAll('.buy-btn').forEach(btn => {
