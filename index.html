@@ -260,7 +260,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* مودال الاحترافي */
+        /* مودال الاحترافي مع رفع الصورة */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -284,7 +284,7 @@
         .modal-container {
             background: linear-gradient(145deg, #1e1b3a, #151234);
             border-radius: 2rem;
-            max-width: 480px;
+            max-width: 520px;
             width: 90%;
             padding: 1.8rem;
             border: 1px solid rgba(255, 200, 100, 0.5);
@@ -344,6 +344,55 @@
             font-size: 0.85rem;
             text-align: right;
         }
+        .file-upload-area {
+            margin: 15px 0;
+            background: #1a173a;
+            border-radius: 1rem;
+            padding: 10px;
+            text-align: center;
+        }
+        .file-upload-area label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            background: #2d2a55;
+            padding: 8px;
+            border-radius: 2rem;
+            transition: 0.2s;
+        }
+        .file-upload-area label:hover {
+            background: #48438b;
+        }
+        #receiptImage {
+            display: none;
+        }
+        .file-name {
+            font-size: 0.7rem;
+            color: #ccc;
+            margin-top: 6px;
+        }
+        .send-order-btn {
+            background: #27ae60;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 40px;
+            color: white;
+            font-weight: bold;
+            width: 100%;
+            margin: 10px 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: 0.2s;
+        }
+        .send-order-btn:hover {
+            background: #2ecc71;
+            transform: scale(1.02);
+        }
         .close-modal {
             background: #ff5e6e;
             border: none;
@@ -351,17 +400,8 @@
             border-radius: 40px;
             color: white;
             font-weight: bold;
-            margin-top: 15px;
+            margin-top: 5px;
             cursor: pointer;
-        }
-        .copy-btn {
-            background: #ffa50055;
-            border: 1px solid #ffa500;
-            padding: 4px 12px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-size: 0.7rem;
-            margin-right: 8px;
         }
         hr {
             border-color: #ffffff30;
@@ -393,7 +433,7 @@
         </div>
     </div>
 
-    <!-- جميع الأقسام مع تعديل الأزرار لاستدعاء المودال -->
+    <!-- جميع الأقسام (مثل السابق مع أيقونات) -->
     <div class="section">
         <div class="section-title"><i class="fab fa-telegram-plane"></i> تفعيل تيليجرام بريميوم</div>
         <div class="services-grid">
@@ -462,46 +502,60 @@
     </div>
 </div>
 
-<!-- المودال -->
+<!-- المودال مع رفع الصورة وإرسال الطلب -->
 <div id="paymentModal" class="modal-overlay">
     <div class="modal-container">
-        <h3><i class="fas fa-receipt"></i> طلب شراء</h3>
+        <h3><i class="fas fa-file-invoice"></i> طلب شراء</h3>
         <div id="modalServiceName" style="font-weight: bold; font-size:1.2rem;">الخدمة</div>
         <div id="modalPrice" style="color:#ffcc88;">السعر: </div>
-        <div class="modal-order-id"><i class="fas fa-hashtag"></i> رقم الطلب: <span id="orderNumber">ORD-0000</span></div>
+        <div class="modal-order-id"><i class="fas fa-ticket-alt"></i> رقم الطلب: <span id="orderNumber">ORD-0000</span></div>
         <div class="payment-methods">
             <div class="pay-method" data-method="vodafone">
                 <i class="fas fa-mobile-alt"></i>
-                <span>🇪🇬 فودافون كاش</span>
+                <span><i class="fas fa-flag"></i> فودافون كاش</span>
             </div>
             <div class="pay-method" data-method="usdt">
-                <i class="fab fa-bitcoin"></i>
-                <span>💎 USDT (TRC20)</span>
+                <i class="fas fa-gem"></i>
+                <span>USDT (TRC20)</span>
             </div>
         </div>
         <div id="methodDetail" class="method-detail">
             <i class="fas fa-info-circle"></i> اختر وسيلة دفع لعرض التفاصيل
         </div>
+        
+        <!-- إضافة رفع الصورة وإرسال الطلب -->
+        <div class="file-upload-area">
+            <label for="receiptImage">
+                <i class="fas fa-cloud-upload-alt"></i> رفع صورة الإيصال / إثبات الدفع
+            </label>
+            <input type="file" id="receiptImage" accept="image/jpeg, image/png, image/jpg">
+            <div class="file-name" id="fileNameDisplay">لم يتم اختيار ملف</div>
+        </div>
+        
+        <button class="send-order-btn" id="sendOrderBtn">
+            <i class="fas fa-paper-plane"></i> إرسال الطلب واستكمال الخدمة
+        </button>
         <button class="close-modal" id="closeModalBtn"><i class="fas fa-times"></i> إغلاق</button>
     </div>
 </div>
 
 <script>
-    // بيانات الدفع
+    // بيانات الدفع بدون إيموجيز (أيقونات)
     const paymentDetails = {
         vodafone: {
             title: "فودافون كاش",
-            text: "📞 رقم فودافون كاش: 01000000000 (يمكنك التحويل على هذا الرقم ثم إرسال صورة الإيصال عبر الدردشة)<br>🔹 المبلغ: <span id='modalPriceValue'></span><br>⚠️ بعد الدفع سيتم التفعيل خلال دقائق."
+            text: '<i class="fas fa-phone-alt"></i> رقم فودافون كاش: <b>01000000000</b> <br> <i class="fas fa-exchange-alt"></i> المبلغ: <span id="modalPriceValue"></span><br> <i class="fas fa-exclamation-triangle"></i> بعد الدفع سيتم التفعيل خلال دقائق.'
         },
         usdt: {
             title: "USDT (TRC20)",
-            text: "💳 عنوان محفظة USDT (TRC20): <b>TXk7hLq3vR9p2mN4wX6yZ8aB1cD3eF5gH7jK</b><br>🔹 الشبكة: TRC20<br>🔹 المبلغ المطلوب: <span id='modalPriceValue'></span><br>📌 يرجى إرسال التجزئة (TxID) بعد التحويل."
+            text: '<i class="fas fa-credit-card"></i> عنوان محفظة USDT (TRC20): <b>TXk7hLq3vR9p2mN4wX6yZ8aB1cD3eF5gH7jK</b><br> <i class="fas fa-link"></i> الشبكة: TRC20<br> <i class="fas fa-dollar-sign"></i> المبلغ المطلوب: <span id="modalPriceValue"></span><br> <i class="fas fa-paper-plane"></i> يرجى إرسال التجزئة (TxID) بعد التحويل.'
         }
     };
 
     let currentOrderId = "";
     let currentService = "";
     let currentPrice = "";
+    let currentMethod = ""; // لتخزين طريقة الدفع المختارة
 
     function generateOrderId() {
         const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ0123456789';
@@ -517,34 +571,67 @@
         currentPrice = price;
         currentOrderId = generateOrderId();
         document.getElementById("modalServiceName").innerText = serviceName;
-        document.getElementById("modalPrice").innerHTML = `💰 السعر: ${price}`;
+        document.getElementById("modalPrice").innerHTML = `<i class="fas fa-coins"></i> السعر: ${price}`;
         document.getElementById("orderNumber").innerText = currentOrderId;
         const modal = document.getElementById("paymentModal");
         modal.classList.add("active");
-        // إعادة تعيين تفاصيل الدفع إلى رسالة ترحيبية
         document.getElementById("methodDetail").innerHTML = `<i class="fas fa-hand-peace"></i> اختر وسيلة دفع لإتمام الطلب رقم ${currentOrderId}`;
+        // إعادة تعيين حالة رفع الملف
+        document.getElementById("receiptImage").value = "";
+        document.getElementById("fileNameDisplay").innerHTML = "لم يتم اختيار ملف";
+        currentMethod = "";
     }
 
     function closeModal() {
         document.getElementById("paymentModal").classList.remove("active");
     }
 
-    // عرض تفاصيل طريقة الدفع
     function showMethodDetail(method) {
+        currentMethod = method;
         const detailDiv = document.getElementById("methodDetail");
         const data = paymentDetails[method];
         if(data) {
             let txt = `<i class="fas fa-credit-card"></i> <strong>${data.title}</strong><br>${data.text}`;
-            // استبدال placeholder السعر إذا وجد
-            txt = txt.replace(/<span id='modalPriceValue'><\/span>/, currentPrice);
-            txt += `<hr><i class="fas fa-check-circle" style="color:#4caf50;"></i> تم فتح الطلب برقم <strong>${currentOrderId}</strong>، يرجى إتمام الدفع عبر ${data.title} وإرسال التأكيد.`;
+            txt = txt.replace(/<span id="modalPriceValue"><\/span>/, currentPrice);
+            txt += `<hr><i class="fas fa-check-circle" style="color:#4caf50;"></i> تم فتح الطلب برقم <strong>${currentOrderId}</strong>، يرجى إتمام الدفع عبر ${data.title} ثم رفع الإيصال وإرسال الطلب.`;
             detailDiv.innerHTML = txt;
         } else {
             detailDiv.innerHTML = `<i class="fas fa-exclamation-triangle"></i> يرجى اختيار طريقة صحيحة.`;
         }
     }
 
-    // ربط الأزرار بحدث المودال
+    // إرسال الطلب مع الصورة
+    function submitOrder() {
+        if (!currentMethod) {
+            alert("الرجاء اختيار طريقة الدفع أولاً");
+            return;
+        }
+        const fileInput = document.getElementById("receiptImage");
+        const file = fileInput.files[0];
+        if (!file) {
+            alert("الرجاء رفع صورة الإيصال / إثبات الدفع");
+            return;
+        }
+        // محاكاة إرسال البيانات (في الحقيقة يمكن استخدام FormData مع API)
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const imageData = e.target.result; // base64 للعرض
+            const orderData = {
+                orderId: currentOrderId,
+                service: currentService,
+                price: currentPrice,
+                method: currentMethod,
+                imageBase64: imageData.substring(0, 100) + "..." // اختصار للعرض
+            };
+            console.log("تم إرسال الطلب:", orderData);
+            // عرض رسالة نجاح للمستخدم
+            alert(`✅ تم إرسال طلبك بنجاح برقم ${currentOrderId}\nسيتم مراجعة الإيصال والتواصل معك قريباً.`);
+            closeModal();
+        };
+        reader.readAsDataURL(file);
+    }
+
+    // ربط الأزرار
     document.querySelectorAll('.buy-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -559,7 +646,7 @@
         });
     });
 
-    // ربط طرق الدفع
+    // طرق الدفع
     document.querySelectorAll('.pay-method').forEach(methodDiv => {
         methodDiv.addEventListener('click', (e) => {
             const method = methodDiv.getAttribute('data-method');
@@ -568,8 +655,20 @@
         });
     });
 
+    // إرسال الطلب
+    document.getElementById("sendOrderBtn").addEventListener("click", submitOrder);
     document.getElementById("closeModalBtn").addEventListener("click", closeModal);
-    // إغلاق عند النقر خارج المودال
+    
+    // عرض اسم الملف عند اختيار صورة
+    document.getElementById("receiptImage").addEventListener("change", function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            document.getElementById("fileNameDisplay").innerHTML = `<i class="fas fa-file-image"></i> ${file.name}`;
+        } else {
+            document.getElementById("fileNameDisplay").innerHTML = "لم يتم اختيار ملف";
+        }
+    });
+    
     window.addEventListener("click", (e) => {
         const modal = document.getElementById("paymentModal");
         if(e.target === modal) closeModal();
