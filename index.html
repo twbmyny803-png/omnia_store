@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أمنية ستور - للخدمات السوشيال ميديا</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #fff;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* هيدر */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .store-name {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(to left, #f7971e, #ffd200);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .store-name span {
+            font-size: 2rem;
+            -webkit-text-fill-color: initial;
+            color: #ffd200;
+        }
+
+        .subtitle {
+            color: #aaa;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        /* حالة التاجر */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 50px;
+            padding: 8px 20px;
+            margin: 10px auto;
+            gap: 8px;
+            font-weight: bold;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+        .status-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #4caf50;
+            box-shadow: 0 0 10px #4caf50;
+            animation: pulse 1.5s infinite;
+        }
+        .status-dot.offline {
+            background: #f44336;
+            box-shadow: 0 0 10px #f44336;
+            animation: none;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                opacity: 0.9;
+            }
+            50% {
+                transform: scale(1.25);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0.95);
+                opacity: 0.9;
+            }
+        }
+
+        /* أقسام */
+        .section {
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 25px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
+        }
+        .section:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .section-title {
+            font-size: 1.4rem;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #ffd966;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+            padding-bottom: 10px;
+        }
+
+        /* شبكة الخدمات */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .service-card {
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 16px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #ffb347;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+        }
+        .service-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+        .price {
+            color: #ffd966;
+            font-weight: bold;
+            margin: 8px 0;
+            font-size: 1.1rem;
+        }
+        .buy-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff8c00, #ffb347);
+            border: none;
+            color: #000;
+            font-weight: bold;
+            padding: 10px 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-decoration: none;
+            margin-top: 5px;
+            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .buy-btn:hover {
+            background: linear-gradient(45deg, #ffa500, #ffcc80);
+            transform: scale(1.03);
+        }
+
+        /* قائمة أسعار خاصة */
+        .price-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+        .price-item {
+            background: #1e1c3a;
+            border-radius: 12px;
+            padding: 12px 15px;
+            min-width: 130px;
+            text-align: center;
+            border: 1px solid #3a3766;
+        }
+
+        .note {
+            font-size: 0.8rem;
+            color: #ffaaaa;
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 25px;
+            color: #aaa;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 15px;
+        }
+
+        /* عملات رقمية خاصة */
+        .crypto-box {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            background: #1a1830;
+            border-radius: 20px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .crypto-item {
+            background: #2d2a4a;
+            border-radius: 12px;
+            padding: 8px 18px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        hr {
+            border-color: rgba(255, 255, 255, 0.1);
+            margin: 15px 0;
+        }
+
+        @media (max-width: 500px) {
+            .store-name {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- الهيدر -->
+        <div class="header">
+            <div class="store-name">
+                <span>🛒</span> أمنية ستور <span>🛒</span>
+            </div>
+            <div class="subtitle">للخدمات السوشيال ميديا والدفع الإلكتروني</div>
+            <!-- حالة التاجر -->
+            <div class="status-badge" id="statusBadge">
+                <span class="status-dot" id="statusDot"></span>
+                <span id="statusText">جار التحميل...</span>
+            </div>
+        </div>
+
+        <!-- قسم تيليجرام بريميوم -->
+        <div class="section">
+            <div class="section-title"><span>🎁</span> تفعيل تيليجرام بريميوم</div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📅</div>
+                    <div class="service-name">بريميوم 3 أشهر</div>
+                    <div class="price">13$ <br><small>(أو ما يعادله كاش)</small></div>
+                    <a href="https://wa.me/201000000000?text=أريد شراء بريميوم 3 أشهر" class="buy-btn" target="_blank">شراء الآن 🛍️</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📆</div>
+                    <div class="service-name">بريميوم 6 أشهر</div>
+                    <div class="price">18$ <br><small>(أو ما يعادله كاش)</small></div>
+                    <a href="https://wa.me/201000000000?text=أريد شراء بريميوم 6 أشهر" class="buy-btn" target="_blank">شراء الآن 🛍️</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🗓️</div>
+                    <div class="service-name">بريميوم 12 شهر</div>
+                    <div class="price">31$ <br><small>(أو ما يعادله كاش)</small></div>
+                    <a href="https://wa.me/201000000000?text=أريد شراء بريميوم 12 شهر" class="buy-btn" target="_blank">شراء الآن 🛍️</a>
+                </div>
+            </div>
+            <div class="note">🔹 الدفع كاش يتم حسابه حسب سعر الدولار وقت الدفع</div>
+        </div>
+
+        <!-- قسم نجوم تيليجرام -->
+        <div class="section">
+            <div class="section-title"><span>⭐</span> شحن نجوم تيليجرام (شرعي)</div>
+            <div class="price-list">
+                <div class="price-item">50 نجمة<br><strong>1.1$ / 55 ج.م</strong><br><a href="https://wa.me/201000000000?text=أريد 50 نجمة" class="buy-btn" style="padding:6px 12px; font-size:0.8rem;">شراء</a></div>
+                <div class="price-item">100 نجمة<br><strong>2$ / 100 ج.م</strong><br><a href="https://wa.me/201000000000?text=أريد 100 نجمة" class="buy-btn" style="padding:6px 12px; font-size:0.8rem;">شراء</a></div>
+                <div class="price-item">200 نجمة<br><strong>3.9$ / 190 ج.م</strong><br><a href="https://wa.me/201000000000?text=أريد 200 نجمة" class="buy-btn" style="padding:6px 12px; font-size:0.8rem;">شراء</a></div>
+                <div class="price-item">300 نجمة<br><strong>5.5$ / 280 ج.م</strong><br><a href="https://wa.me/201000000000?text=أريد 300 نجمة" class="buy-btn" style="padding:6px 12px; font-size:0.8rem;">شراء</a></div>
+                <div class="price-item">500 نجمة<br><strong>9$ / 450 ج.م</strong><br><a href="https://wa.me/201000000000?text=أريد 500 نجمة" class="buy-btn" style="padding:6px 12px; font-size:0.8rem;">شراء</a></div>
+                <div class="price-item">750 نجمة<br><strong>13.5$ / 680 ج.م</strong><br><a href="https://wa.me/201000000000?text=أريد 750 نجمة" class="buy-btn" style="padding:6px 12px; font-size:0.8rem;">شراء</a></div>
+                <div class="price-item">1000 نجمة<br><strong>17$ / 865 ج.م</strong><br><a href="https://wa.me/201000000000?text=أريد 1000 نجمة" class="buy-btn" style="padding:6px 12px; font-size:0.8rem;">شراء</a></div>
+            </div>
+            <div class="note">⚡ الشحن سريع - متوفر أي كمية</div>
+        </div>
+
+        <!-- قسم متصلين الجروبات -->
+        <div class="section">
+            <div class="section-title"><span>⭐️</span> تزويد أعضاء متصلين للجروبات</div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">👥</div>
+                    <div class="service-name">250 متصل</div>
+                    <div class="price">3$ / 150 ج.م</div>
+                    <a href="https://wa.me/201000000000?text=أريد 250 متصل للجروب" class="buy-btn" target="_blank">شراء الآن 🛍️</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👥👥</div>
+                    <div class="service-name">500 متصل</div>
+                    <div class="price">5.5$ / 275 ج.م</div>
+                    <a href="https://wa.me/201000000000?text=أريد 500 متصل للجروب" class="buy-btn" target="_blank">شراء الآن 🛍️</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👥👥👥</div>
+                    <div class="service-name">1000 متصل</div>
+                    <div class="price">9.5$ / 450 ج.م</div>
+                    <a href="https://wa.me/201000000000?text=أريد 1000 متصل للجروب" class="buy-btn" target="_blank">شراء الآن 🛍️</a>
+                </div>
+            </div>
+            <div class="note">🚨 المتصلين لمدة شهر فقط</div>
+        </div>
+
+        <!-- باقي الخدمات السريعة -->
+        <div class="section">
+            <div class="section-title"><span>🛍️</span> خدمات متنوعة</div>
+            <div class="services-grid">
+                <div class="service-card"><div class="service-icon">⚡</div><div class="service-name">تعزيز قنوات/جروبات</div><a href="https://wa.me/201000000000?text=أريد تعزيز قناة" class="buy-btn" target="_blank">شراء</a></div>
+                <div class="service-card"><div class="service-icon">✈️</div><div class="service-name">متابعين تيليجرام</div><a href="https://wa.me/201000000000?text=أريد متابعين" class="buy-btn" target="_blank">شراء</a></div>
+                <div class="service-card"><div class="service-icon">📊</div><div class="service-name">تفاعلات ومشاهدات</div><a href="https://wa.me/201000000000?text=أريد تفاعلات" class="buy-btn" target="_blank">شراء</a></div>
+                <div class="service-card"><div class="service-icon">🩶</div><div class="service-name">شحن عملات TikTok</div><a href="https://wa.me/201000000000?text=شحن تيك توك" class="buy-btn" target="_blank">شراء</a></div>
+                <div class="service-card"><div class="service-icon">📱</div><div class="service-name">أرقام واتساب / تيليجرام</div><a href="https://wa.me/201000000000?text=أريد رقم وهمي" class="buy-btn" target="_blank">شراء</a></div>
+                <div class="service-card"><div class="service-icon">🎬</div><div class="service-name">اشتراكات (Netflix, Spotify...)</div><a href="https://wa.me/201000000000?text=اشتراك تطبيق" class="buy-btn" target="_blank">شراء</a></div>
+                <div class="service-card"><div class="service-icon">🎮</div><div class="service-name">شحن ألعاب / رصيد دولار</div><a href="https://wa.me/201000000000?text=شحن لعبة" class="buy-btn" target="_blank">شراء</a></div>
+                <div class="service-card"><div class="service-icon">🤖</div><div class="service-name">ChatGPT Plus</div><a href="https://wa.me/201000000000?text=تفعيل ChatGPT بلس" class="buy-btn" target="_blank">شراء</a></div>
+            </div>
+        </div>
+
+        <!-- بيع وشراء عملات رقمية -->
+        <div class="section">
+            <div class="section-title"><span>🤑</span> بيع وشراء عملات رقمية</div>
+            <div class="crypto-box">
+                <div class="crypto-item">💵 USDT</div>
+                <div class="crypto-item">💎 TON</div>
+                <div class="crypto-item">💰 TRX</div>
+            </div>
+            <div style="text-align: center; margin-top: 10px;">
+                <a href="https://wa.me/201000000000?text=أريد شراء/بيع عملات رقمية" class="buy-btn" style="padding:12px 30px; font-size:1rem;">تواصل لشراء أو بيع العملات 🔥</a>
+            </div>
+            <div class="note">⚡ أفضل الأسعار - تحويل سريع</div>
+        </div>
+
+        <!-- جروبات وقنوات للبيع -->
+        <div class="section">
+            <div class="section-title"><span>✈️</span> جروبات وقنوات تيليجرام للبيع</div>
+            <div style="text-align:center;">
+                <p>📦 متاح جروبات وقنوات جاهزة للبيع - أسعار تنافسية</p>
+                <a href="https://wa.me/201000000000?text=أريد شراء قناة/جروب" class="buy-btn" target="_blank">استفسر الآن ✈️</a>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            <span>🛒 أمنية ستور - جميع الخدمات السوشيال ميديا والدفع الرقمي 📣</span><br>
+            <span>📱 تواصل معنا عبر واتساب أو تيليجرام للحصول على الخدمة فوراً</span>
+        </div>
+    </div>
+
+    <script>
+        // تحديد حالة التاجر بناءً على الوقت الحالي (متصل من 9 صباحاً حتى 11 مساءً)
+        function updateStatus() {
+            const now = new Date();
+            const hour = now.getHours();
+            const isOnline = hour >= 9 && hour < 23; // متصل بين 9 صباحاً و11 مساءً
+
+            const dot = document.getElementById('statusDot');
+            const text = document.getElementById('statusText');
+
+            if (isOnline) {
+                dot.className = 'status-dot'; // أخضر مع animation
+                text.textContent = '🟢 التاجر متصل الآن';
+            } else {
+                dot.className = 'status-dot offline';
+                text.textContent = '🔴 التاجر غير متصل حالياً';
+            }
+        }
+
+        // تحديث الحالة عند التحميل وكل دقيقة (اختياري)
+        updateStatus();
+        setInterval(updateStatus, 60000); // تحديث كل دقيقة
+
+        // ملاحظة: يمكنك تغيير رابط واتساب في جميع الأزرار إلى رقمك الحقيقي (استبدل 201000000000)
+        console.log('أمنية ستور - جاهز للعمل ✅');
+    </script>
+</body>
+              </html>
